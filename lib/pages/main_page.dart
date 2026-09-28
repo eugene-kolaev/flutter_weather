@@ -153,14 +153,14 @@ class _MainPageState extends State<MainPage> {
       color: WeatherColors.background,
       child: ListView(
         children: [
+          NavigationButtonsWidget(
+            onTap: _onSwitchView,
+            current: currentView,
+          ),
           MainTempWidget(
             tempC: weather.current!.temperature2M!.toInt(),
             feelsLikeTempC: weather.current!.apparentTemperature!.toInt(),
             weatherResponse: weather,
-          ),
-          NavigationButtonsWidget(
-            onTap: _onSwitchView,
-            current: currentView,
           ),
           HourlyForecastWidget(hourlyResponse: weather.hourly!),
           DayForecastWidget(hourlyResponse: weather.hourly!),
